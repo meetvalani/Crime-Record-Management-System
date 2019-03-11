@@ -1,0 +1,12 @@
+SELECT * FROM `petitioner` , `victim` WHERE
+ `petitioner`.`PETITIONER_ID` = (SELECT `fir`.`PETITIONER_ID` FROM `fir` WHERE `fir`.`FIR_NUMBER` = 'F104') 
+and
+ `victim`.`VICTIM_ID`=(SELECT `fir`.`VICTIM_ID` FROM `fir` WHERE `fir`.`FIR_NUMBER` = 'F104');
+
+
+SELECT * FROM `petitioner` , `victim` , `accused` WHERE 
+ `petitioner`.`PETITIONER_ID` = (SELECT `fir`.`PETITIONER_ID` FROM `fir` WHERE `fir`.`FIR_NUMBER` = 'F104') 
+and
+ `victim`.`VICTIM_ID`=(SELECT `fir`.`VICTIM_ID` FROM `fir` WHERE `fir`.`FIR_NUMBER` = 'F104') 
+and
+ `ACCUSED`.`ACCUSED_ID`=(SELECT `fir`.`ACCUSED_ID` FROM `fir` WHERE `fir`.`FIR_NUMBER` = 'F104');
